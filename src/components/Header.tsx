@@ -5,7 +5,7 @@ import { Menu, X, Phone } from 'lucide-react';
 import { SITE } from '@/lib/constants';
 
 const navLinks = [
-  { href: '#hero', label: 'Accueil' },
+  { href: '/', label: 'Accueil' },
   { href: '#apropos', label: 'À Propos' },
   { href: '#services', label: 'Services' },
   { href: '#contact', label: 'Contact' },
@@ -29,7 +29,7 @@ export default function Header() {
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          <a href="#hero" className="text-lg sm:text-xl font-bold tracking-tight metallic-text hover:opacity-90 transition-opacity py-3 -my-3">
+          <a href="/" className="text-lg sm:text-xl font-bold tracking-tight metallic-text hover:opacity-90 transition-opacity py-3 -my-3">
             {SITE.name.toUpperCase()}
           </a>
 
