@@ -27,7 +27,7 @@ export default function Footer() {
               <li className="flex items-center justify-center gap-2">
                 <MapPin size={16} className="shrink-0 mt-0.5" />
                 <a
-                  href={SITE.mapsUrl}
+                  href={SITE.mapsUrlWeb}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-cyan-400 transition-colors touch-manipulation underline underline-offset-2 decoration-slate-500 hover:decoration-cyan-400"

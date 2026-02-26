@@ -1,4 +1,5 @@
-import { ChevronDown, Sparkles } from 'lucide-react';
+import Image from 'next/image';
+import { ChevronDown, Sparkles, Zap } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -6,19 +7,28 @@ export default function Hero() {
       className="relative min-h-[100dvh] min-h-[100svh] flex items-center justify-center overflow-hidden pt-[env(safe-area-inset-top)]"
     >
       <div className="absolute inset-0">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=80"
           alt="Soudage de précision - atelier industriel"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          fetchPriority="high"
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-slate-950/80" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700 mb-8 opacity-0 animate-fade-up-delay-2">
-          <Sparkles className="w-4 h-4 text-cyan-400 shrink-0" />
-          <span className="text-sm text-slate-300">Artisanat & Expertise</span>
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700 opacity-0 animate-fade-up-delay-2">
+            <Sparkles className="w-4 h-4 text-cyan-400 shrink-0" />
+            <span className="text-sm text-slate-300">Artisanat & Expertise</span>
+          </div>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/20 border border-cyan-400/30 opacity-0 animate-fade-up-delay-2">
+            <Zap className="w-4 h-4 text-cyan-400 shrink-0" />
+            <span className="text-sm text-cyan-300 font-medium">Intervention sous 24h</span>
+          </div>
         </div>
 
         <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-100 leading-tight tracking-tight opacity-0 animate-fade-up-delay-3">
@@ -53,6 +63,7 @@ export default function Hero() {
 
       <a
         href="#apropos"
+        aria-label="Faire défiler vers la section À propos"
         className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 p-3 -m-3 text-slate-400 hover:text-cyan-400 transition-colors touch-manipulation animate-bounce"
         style={{ paddingBottom: 'max(1.5rem, env(safe-area-inset-bottom))' }}
       >
