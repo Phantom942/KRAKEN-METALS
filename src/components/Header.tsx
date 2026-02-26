@@ -21,6 +21,20 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.hash === '#hero') {
+      window.history.replaceState(null, '', window.location.pathname || '/');
+    }
+  }, []);
+
+  const goToTop = (e: React.MouseEvent) => {
+    if (window.location.hash === '#hero' || window.location.pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0 });
+      window.history.replaceState(null, '', window.location.pathname || '/');
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -29,13 +43,13 @@ export default function Header() {
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          <a href="/" className="text-lg sm:text-xl font-bold tracking-tight metallic-text hover:opacity-90 transition-opacity py-3 -my-3">
+          <a href="/" onClick={goToTop} className="text-lg sm:text-xl font-bold tracking-tight metallic-text hover:opacity-90 transition-opacity py-3 -my-3">
             {SITE.name.toUpperCase()}
           </a>
 
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a key={link.href} href={link.href} className="text-slate-300 hover:text-cyan-400 transition-colors text-sm font-medium">
+              <a key={link.href} href={link.href} onClick={link.href === '/' ? goToTop : undefined} className="text-slate-300 hover:text-cyan-400 transition-colors text-sm font-medium">
                 {link.label}
               </a>
             ))}
@@ -65,7 +79,7 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => { if (link.href === '/') goToTop(e); setIsMobileMenuOpen(false); }}
                 className="py-3.5 px-2 -mx-2 text-slate-300 hover:text-cyan-400 active:bg-slate-800/50 rounded-lg transition-colors font-medium text-base"
               >
                 {link.label}
