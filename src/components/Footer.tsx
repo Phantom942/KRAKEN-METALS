@@ -61,7 +61,7 @@ export default function Footer() {
               Zone d&apos;intervention rapide
             </h4>
             <p className="text-slate-500 text-sm leading-relaxed">
-              Basés à Ivry-sur-Seine, nous intervenons sous 24h à Vitry, Villejuif, Charenton, Alfortville et dans tout le sud parisien (75013, 75012).
+              Basés à Ivry-sur-Seine, nous intervenons sous 24h dans Paris et alentours.
             </p>
           </div>
         </FadeIn>
