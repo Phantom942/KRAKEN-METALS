@@ -1,4 +1,4 @@
-import { MapPin, Phone, Clock } from 'lucide-react';
+import { MapPin, Phone, Clock, MapPinned } from 'lucide-react';
 import { SITE } from '@/lib/constants';
 import FadeIn from './FadeIn';
 
@@ -53,6 +53,18 @@ export default function Footer() {
             </div>
           </FadeIn>
         </div>
+
+        <FadeIn delay={150} className="mt-8 sm:mt-10">
+          <div className="text-center max-w-2xl mx-auto">
+            <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2 flex items-center justify-center gap-2">
+              <MapPinned size={12} />
+              Zone d&apos;intervention rapide
+            </h4>
+            <p className="text-slate-500 text-sm leading-relaxed">
+              Basés à Ivry-sur-Seine, nous intervenons sous 24h à Vitry, Villejuif, Charenton, Alfortville et dans tout le sud parisien (75013, 75012).
+            </p>
+          </div>
+        </FadeIn>
 
         <FadeIn delay={200} className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-slate-400 text-sm sm:text-base text-center">
           <span>© {new Date().getFullYear()} <span className="metallic-text font-semibold">{SITE.name}</span>. Tous droits réservés.</span>
