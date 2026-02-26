@@ -53,12 +53,14 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "ProfessionalService"],
   name: SITE.name,
+  description: "KRAKEN METALS, expert en soudage TIG et MIG, soudage de précision à Ivry-sur-Seine. Métallerie, réparation métallique. Intervention rapide sur Paris et toute l'Île-de-France.",
   image: `${SITE.url}/og-image.jpg`,
   "@id": SITE.url,
   url: SITE.url,
   telephone: SITE.phoneHref.replace("tel:", ""),
+  knowsAbout: ["Soudage TIG", "Soudage MIG", "Acier", "Inox", "Aluminium", "Métallerie", "Réparation métallique"],
   address: {
     "@type": "PostalAddress",
     streetAddress: SITE.address,
@@ -67,6 +69,11 @@ const jsonLd = {
     addressRegion: "Val-de-Marne",
     addressCountry: "FR",
   },
+  areaServed: [
+    { "@type": "City", "name": "Paris" },
+    { "@type": "AdministrativeArea", "name": "Île-de-France" },
+    { "@type": "City", "name": "Ivry-sur-Seine" },
+  ],
   geo: {
     "@type": "GeoCoordinates",
     latitude: 48.8145,
