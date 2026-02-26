@@ -1,0 +1,10 @@
+=== Vérification Google Search Console - kraken-metals.fr ===
+
+Ajoute cet enregistrement TXT dans la zone DNS de kraken-metals.fr :
+
+Type  : TXT
+Nom   : @ (ou kraken-metals.fr.)
+Valeur: google-site-verification=9jIj_fTnDjmo-zUr0Cadk5ztrW1yHaIO-vY4rzHwLBg
+
+Puis clique sur VALIDER dans Google Search Console.
+La propagation DNS peut prendre jusqu'à 48h.
