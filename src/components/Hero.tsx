@@ -3,7 +3,6 @@ import { ChevronDown, Sparkles } from 'lucide-react';
 export default function Hero() {
   return (
     <section
-      id="hero"
       className="relative min-h-[100dvh] min-h-[100svh] flex items-center justify-center overflow-hidden pt-[env(safe-area-inset-top)]"
     >
       <div className="absolute inset-0">
