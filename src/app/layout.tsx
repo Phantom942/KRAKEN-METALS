@@ -47,8 +47,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // À ajouter quand tu crées ton compte Google Search Console
-    // google: "ton-code-verification",
+    google: "9jIj_fTnDjmo-zUr0Cadk5ztrW1yHaIO-vY4rzHwLBg",
   },
 };
 
