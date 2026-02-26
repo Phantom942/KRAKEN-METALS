@@ -1,5 +1,6 @@
 export const SITE = {
   name: 'KRAKEN METALS',
+  url: 'https://www.kraken-metals.fr',
   phone: '06 48 74 56 68',
   phoneHref: 'tel:+33648745668',
   address: '9 rue Michelet',
