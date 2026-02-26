@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
 import { SITE } from '@/lib/constants';
 
@@ -14,6 +14,7 @@ const navLinks = [
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -26,6 +27,39 @@ export default function Header() {
       window.history.replaceState(null, '', window.location.pathname || '/');
     }
   }, []);
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsMobileMenuOpen(false);
+    };
+    if (isMobileMenuOpen) {
+      document.addEventListener('keydown', handleEscape);
+      const first = menuRef.current?.querySelector<HTMLElement>('a[href]');
+      first?.focus();
+    }
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    const menu = menuRef.current;
+    if (!isMobileMenuOpen || !menu) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return;
+      const focusables = menu.querySelectorAll<HTMLElement>('a[href], button');
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    menu.addEventListener('keydown', handleKeyDown);
+    return () => menu.removeEventListener('keydown', handleKeyDown);
+  }, [isMobileMenuOpen]);
 
   const goToTop = (e: React.MouseEvent) => {
     if (window.location.hash === '#hero' || window.location.pathname === '/') {
@@ -66,6 +100,9 @@ export default function Header() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-3 -m-3 min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-200 hover:text-cyan-400 transition-colors active:scale-95"
             aria-label="Menu"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
+            aria-haspopup="menu"
           >
             {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
@@ -73,7 +110,7 @@ export default function Header() {
       </nav>
 
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-slate-900/98 backdrop-blur-md border-t border-slate-800 animate-fade-in animate-visible">
+        <div id="mobile-menu" ref={menuRef} className="md:hidden bg-slate-900/98 backdrop-blur-md border-t border-slate-800 animate-fade-in animate-visible">
           <div className="px-4 py-4 pb-[calc(1rem+env(safe-area-inset-bottom))] flex flex-col gap-1">
             {navLinks.map((link) => (
               <a

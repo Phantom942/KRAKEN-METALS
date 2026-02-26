@@ -6,6 +6,21 @@ html {
   scroll-behavior: smooth;
 }
 
+/* scroll-margin-top pour les sections sous header fixe */
+#apropos,
+#services,
+#contact {
+  scroll-margin-top: 5.5rem;
+}
+
+@media (min-width: 768px) {
+  #apropos,
+  #services,
+  #contact {
+    scroll-margin-top: 6rem;
+  }
+}
+
 body {
   background-color: #020617;
   color: #e2e8f0;

@@ -11,7 +11,7 @@ import {
 import FadeIn from './FadeIn';
 
 const services = [
-  { icon: Flame, title: 'Soudage TIG', description: 'Précision maximale pour acier, inox et aluminium. Idéal pour la ferronnerie d\'art et les pièces fines.' },
+  { icon: Flame, title: 'Soudage TIG', description: "Précision maximale pour acier, inox et aluminium. Idéal pour la ferronnerie d'art et les pièces fines." },
   { icon: Layers, title: 'Soudage MIG-MAG', description: 'Productivité et qualité pour les travaux de métallerie et assemblages industriels.' },
   { icon: CircleDot, title: "Soudage à l'électrode", description: 'Robustesse et versatilité pour les chantiers et réparations en conditions difficiles.' },
   { icon: Hexagon, title: 'Acier & Inox', description: 'Travail sur acier carbone et acier inoxydable pour tous vos projets structurels et alimentaires.' },
