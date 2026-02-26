@@ -10,8 +10,8 @@ export default function About() {
           <FadeIn>
             <div className="relative">
               <Image
-                src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&q=80"
-                alt="Soudeur avec masque - soudage de précision en atelier"
+                src="https://images.unsplash.com/photo-1504917595217-d04dcbbebe34?w=800&q=80"
+                alt="Soudeur en action - soudage de précision en atelier"
                 width={800}
                 height={600}
                 className="rounded-2xl shadow-2xl shadow-black/50 w-full h-auto"
