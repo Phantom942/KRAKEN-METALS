@@ -5,11 +5,11 @@ import { SITE } from '@/lib/constants';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "KRAKEN METALS | Soudage de précision à Ivry-sur-Seine (94) - Paris & Île-de-France",
+    default: "KRAKEN METALS | Soudure de Précision Ivry, Paris 13 & Val-de-Marne",
     template: "%s | KRAKEN METALS",
   },
-  description: "Artisan soudeur à Ivry-sur-Seine (Val-de-Marne). Soudage de précision, métallerie et réparation métallique. Ouvert 7j/7, intervention rapide sur Paris, Petite Couronne et Grand Paris.",
-  keywords: ["soudage précision", "métallerie", "soudure TIG", "soudure MIG", "réparation métallique", "artisan soudeur", "Ivry-sur-Seine", "Val-de-Marne", "Paris", "Île-de-France", "ferronnerie", "tuyauterie industrielle"],
+  description: "Artisan soudeur à Ivry-sur-Seine. Kraken Metals assure vos travaux de métallerie et dépannages à Vitry, Villejuif, Charenton et Paris Sud. Réactivité garantie dans le 94.",
+  keywords: ["soudage précision", "métallerie", "soudure TIG", "soudure MIG", "réparation métallique", "artisan soudeur", "Ivry-sur-Seine", "Vitry-sur-Seine", "Villejuif", "Charenton-le-Pont", "Alfortville", "Paris 13", "Val-de-Marne", "Île-de-France"],
   authors: [{ name: "KRAKEN METALS", url: SITE.url }],
   creator: "KRAKEN METALS",
   publisher: "KRAKEN METALS",
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: SITE.url,
     siteName: "KRAKEN METALS",
-    title: "KRAKEN METALS | Soudage de précision à Ivry-sur-Seine",
-    description: "Artisan soudeur à Ivry-sur-Seine. Soudage de précision, métallerie, réparation métallique. Ouvert 7j/7. Paris & Île-de-France.",
+    title: "KRAKEN METALS | Soudure de Précision Ivry, Paris 13 & Val-de-Marne",
+    description: "Artisan soudeur à Ivry-sur-Seine. Métallerie et dépannages à Vitry, Villejuif, Charenton, Paris Sud. Réactivité garantie dans le 94.",
     images: [
       {
         url: "/og-image.jpg",
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "KRAKEN METALS | Soudage de précision à Ivry-sur-Seine",
-    description: "Artisan soudeur, métallerie, réparation métallique. Ouvert 7j/7. Paris & Île-de-France.",
+    title: "KRAKEN METALS | Soudure de Précision Ivry, Paris 13 & Val-de-Marne",
+    description: "Artisan soudeur à Ivry. Métallerie à Vitry, Villejuif, Charenton, Paris Sud. Réactivité garantie dans le 94.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -70,9 +70,21 @@ const jsonLd = {
     addressCountry: "FR",
   },
   areaServed: [
-    { "@type": "City", "name": "Paris" },
-    { "@type": "AdministrativeArea", "name": "Île-de-France" },
     { "@type": "City", "name": "Ivry-sur-Seine" },
+    { "@type": "City", "name": "Vitry-sur-Seine" },
+    { "@type": "City", "name": "Villejuif" },
+    { "@type": "City", "name": "Charenton-le-Pont" },
+    { "@type": "City", "name": "Maisons-Alfort" },
+    { "@type": "City", "name": "Alfortville" },
+    { "@type": "City", "name": "Choisy-le-Roi" },
+    { "@type": "City", "name": "Le Kremlin-Bicêtre" },
+    { "@type": "City", "name": "Saint-Maurice" },
+    { "@type": "Place", "name": "Paris 13" },
+    { "@type": "Place", "name": "Paris 12" },
+    { "@type": "Place", "name": "Paris 14" },
+    { "@type": "City", "name": "Paris" },
+    { "@type": "AdministrativeArea", "name": "Val-de-Marne" },
+    { "@type": "AdministrativeArea", "name": "Île-de-France" },
   ],
   geo: {
     "@type": "GeoCoordinates",
