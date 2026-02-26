@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Wrench, Zap } from 'lucide-react';
 import FadeIn from './FadeIn';
 
@@ -9,12 +8,11 @@ export default function About() {
         <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
           <FadeIn>
             <div className="relative">
-              <Image
-                src="https://images.unsplash.com/photo-1504917595217-d04dcbbebe34?w=800&q=80"
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/about-welder.png"
                 alt="Soudeur en action - soudage de précision en atelier"
-                width={800}
-                height={600}
-                className="rounded-2xl shadow-2xl shadow-black/50 w-full h-auto"
+                className="rounded-2xl shadow-2xl shadow-black/50 w-full h-auto object-cover aspect-[4/3]"
               />
               <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-cyan-500/20 rounded-2xl border border-cyan-400/30 flex items-center justify-center">
                 <Zap className="w-12 h-12 text-cyan-400" />
