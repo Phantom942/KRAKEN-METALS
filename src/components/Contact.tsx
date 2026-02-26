@@ -53,9 +53,8 @@ export default function Contact() {
 
                 <div className="flex flex-col items-center lg:items-start gap-2 p-5 sm:p-6 rounded-2xl bg-slate-800/50 border border-slate-700">
                   <Clock className="w-10 h-10 text-slate-400" />
-                  <span className="text-slate-400 text-sm font-medium">Horaires</span>
-                  <span className="text-slate-200">{SITE.hours.weekdays}</span>
-                  <span className="text-slate-400 text-sm">{SITE.hours.saturday}</span>
+                  <span className="text-slate-400 text-sm font-medium">Horaires — Ouvert 7j/7</span>
+                  <span className="text-slate-200">Lun - Dim : 9h - 20h</span>
                 </div>
               </div>
             </div>

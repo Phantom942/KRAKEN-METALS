@@ -30,6 +30,7 @@ const config: Config = {
         'fade-up-delay-5': 'fadeUp 0.6s ease-out 0.5s forwards',
         'fade-up-delay-6': 'fadeUp 0.6s ease-out 0.6s forwards',
         'fade-up-delay-8': 'fadeUp 0.5s ease-out 0.8s forwards',
+        'metallic-shimmer': 'metallicShimmer 4s ease-in-out infinite',
       },
     },
   },
