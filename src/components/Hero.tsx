@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { ChevronDown, Sparkles } from 'lucide-react';
 
 export default function Hero() {
@@ -8,13 +7,11 @@ export default function Hero() {
       className="relative min-h-[100dvh] min-h-[100svh] flex items-center justify-center overflow-hidden pt-[env(safe-area-inset-top)]"
     >
       <div className="absolute inset-0">
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=80"
           alt="Soudage de précision - atelier industriel"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-slate-950/80" />
       </div>

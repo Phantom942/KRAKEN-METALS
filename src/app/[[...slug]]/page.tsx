@@ -7,6 +7,10 @@ const Services = dynamic(() => import('@/components/Services'), { loading: () =>
 const Contact = dynamic(() => import('@/components/Contact'), { loading: () => <section className="min-h-[400px]" /> });
 const Footer = dynamic(() => import('@/components/Footer'));
 
+export function generateStaticParams() {
+  return [{ slug: [] }, { slug: ['services'] }, { slug: ['contact'] }, { slug: ['apropos'] }];
+}
+
 export default function CatchAllPage() {
   return (
     <main className="min-h-screen bg-slate-950">

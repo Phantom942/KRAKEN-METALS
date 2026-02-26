@@ -1,6 +1,14 @@
 /** @type {import('next').NextConfig} */
+const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'KRAKEN-METALS';
+const useBasePath = process.env.GITHUB_ACTIONS === 'true' && process.env.CUSTOM_DOMAIN !== 'true';
+const basePath = useBasePath ? `/${repoName}` : '';
+
 const nextConfig = {
+  output: 'export',
+  basePath: basePath || undefined,
+  assetPrefix: basePath ? `${basePath}/` : undefined,
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -9,6 +17,7 @@ const nextConfig = {
       },
     ],
   },
+  trailingSlash: true,
 };
 
 module.exports = nextConfig;

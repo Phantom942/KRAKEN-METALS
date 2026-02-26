@@ -22,5 +22,30 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* Effet métallique pour KRAKEN METALS */
+  .metallic-text {
+    background: linear-gradient(
+      110deg,
+      #ffffff 0%,
+      #e8e8e8 20%,
+      #c0c0c0 40%,
+      #909090 50%,
+      #c0c0c0 60%,
+      #e8e8e8 80%,
+      #ffffff 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    animation: metallic-shimmer 5s ease-in-out infinite;
+  }
+}
+
+@keyframes metallic-shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
