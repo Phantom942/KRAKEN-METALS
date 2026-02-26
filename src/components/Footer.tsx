@@ -6,8 +6,8 @@ export default function Footer() {
   return (
     <footer className="bg-slate-950 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16 pb-[max(2.5rem,env(safe-area-inset-bottom))]">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12">
-          <FadeIn>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-12 justify-items-center text-center">
+          <FadeIn className="max-w-sm">
             <h3 className="text-lg font-bold metallic-text mb-4">{SITE.name.toUpperCase()}</h3>
             <p className="text-slate-400 text-sm">
               Soudage de précision à Ivry-sur-Seine (94). Métallerie et réparation métallique
@@ -15,16 +15,16 @@ export default function Footer() {
             </p>
           </FadeIn>
 
-          <FadeIn delay={50}>
+          <FadeIn delay={50} className="max-w-sm">
             <h4 className="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-4">Contact</h4>
-            <ul className="space-y-3 text-slate-400 text-sm">
+            <ul className="space-y-3 text-slate-400 text-sm flex flex-col items-center">
               <li>
                 <a href={SITE.phoneHref} className="flex items-center gap-2 py-2 -my-2 hover:text-cyan-400 transition-colors touch-manipulation">
                   <Phone size={16} />
                   {SITE.phone}
                 </a>
               </li>
-              <li className="flex items-start gap-2">
+              <li className="flex items-center justify-center gap-2">
                 <MapPin size={16} className="shrink-0 mt-0.5" />
                 <a
                   href={SITE.mapsUrl}
@@ -38,11 +38,11 @@ export default function Footer() {
             </ul>
           </FadeIn>
 
-          <FadeIn delay={100}>
+          <FadeIn delay={100} className="max-w-sm">
             <h4 className="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-4">Horaires — Ouvert 7j/7</h4>
-            <div className="text-slate-400 text-sm flex items-start gap-2">
-              <Clock size={16} className="shrink-0 mt-0.5" />
-              <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 items-baseline min-w-0">
+            <div className="text-slate-400 text-sm flex items-center justify-center gap-2">
+              <Clock size={16} className="shrink-0" />
+              <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 items-baseline min-w-0 justify-items-start">
                 <dt className="text-slate-300">Lun - Ven :</dt>
                 <dd>{SITE.hours.weekdays}</dd>
                 <dt className="text-slate-300">Samedi :</dt>
@@ -51,15 +51,6 @@ export default function Footer() {
                 <dd>{SITE.hours.sunday}</dd>
               </dl>
             </div>
-          </FadeIn>
-
-          <FadeIn delay={150}>
-            <h4 className="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-4">Mentions légales</h4>
-            <ul className="space-y-2 text-slate-400 text-sm">
-              <li><a href="#" className="block py-2 -my-2 hover:text-cyan-400 transition-colors touch-manipulation">Mentions légales</a></li>
-              <li><a href="#" className="block py-2 -my-2 hover:text-cyan-400 transition-colors touch-manipulation">Politique de confidentialité</a></li>
-              <li><a href="#" className="block py-2 -my-2 hover:text-cyan-400 transition-colors touch-manipulation">CGV</a></li>
-            </ul>
           </FadeIn>
         </div>
 
