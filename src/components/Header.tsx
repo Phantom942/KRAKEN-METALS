@@ -9,6 +9,7 @@ const navLinks = [
   { href: '/urgences/', label: 'Urgences', urgent: true },
   { href: '#apropos', label: 'À Propos' },
   { href: '#services', label: 'Services' },
+  { href: '#faq', label: 'FAQ' },
   { href: '#contact', label: 'Contact' },
 ];
 

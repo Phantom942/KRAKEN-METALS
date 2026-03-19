@@ -9,6 +9,7 @@ html {
 /* scroll-margin-top pour les sections sous header fixe */
 #apropos,
 #services,
+#faq,
 #contact {
   scroll-margin-top: 5.5rem;
 }
@@ -16,6 +17,7 @@ html {
 @media (min-width: 768px) {
   #apropos,
   #services,
+  #faq,
   #contact {
     scroll-margin-top: 6rem;
   }

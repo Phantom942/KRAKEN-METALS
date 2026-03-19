@@ -1,15 +1,32 @@
 import { SITE } from './constants';
 
+/** Structured data enrichi pour SEO, GEO et recommandations IA (ChatGPT, Perplexity, Google AI). */
 export const jsonLd = {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "ProfessionalService"],
+  "@type": ["LocalBusiness", "ProfessionalService", "Store"],
+  "@id": `${SITE.url}/#business`,
   name: SITE.name,
-  description: "KRAKEN METALS, expert en soudage TIG et MIG, soudage de précision à Ivry-sur-Seine. Métallerie, réparation métallique. Intervention rapide sur Paris et toute l'Île-de-France.",
+  alternateName: "Kraken Metals",
+  description: "KRAKEN METALS est un atelier de soudage de précision à Ivry-sur-Seine (94). Expert en soudure TIG, MIG-MAG et à l'électrode sur acier, inox et aluminium. Métallerie, ferronnerie, tuyauterie industrielle, réparation métallique. Intervention sous 24h possible. Zone : Paris, Val-de-Marne, Île-de-France. Ouvert 7j/7.",
+  slogan: "L'Art de la Fusion - Précision Industrielle & Savoir-faire Artisanal",
   image: `${SITE.url}/og-image.jpg`,
-  "@id": SITE.url,
   url: SITE.url,
   telephone: SITE.phoneHref.replace("tel:", ""),
-  knowsAbout: ["Soudage TIG", "Soudage MIG", "Acier", "Inox", "Aluminium", "Métallerie", "Réparation métallique"],
+  email: SITE.email,
+  knowsAbout: [
+    "Soudage TIG",
+    "Soudage MIG-MAG",
+    "Soudage à l'électrode",
+    "Acier",
+    "Inox",
+    "Aluminium",
+    "Fonte",
+    "Métallerie",
+    "Ferronnerie",
+    "Réparation métallique",
+    "Tuyauterie industrielle",
+    "Soudure urgence",
+  ],
   address: {
     "@type": "PostalAddress",
     streetAddress: SITE.address,
@@ -19,7 +36,7 @@ export const jsonLd = {
     addressCountry: "FR",
   },
   areaServed: [
-    { "@type": "City", "name": "Ivry-sur-Seine" },
+    { "@type": "City", "name": "Ivry-sur-Seine", "containedInPlace": { "@type": "AdministrativeArea", "name": "Val-de-Marne" } },
     { "@type": "City", "name": "Vitry-sur-Seine" },
     { "@type": "City", "name": "Villejuif" },
     { "@type": "City", "name": "Charenton-le-Pont" },
@@ -41,6 +58,21 @@ export const jsonLd = {
     longitude: 2.385,
   },
   hasMap: "https://www.google.com/maps/search/?api=1&query=9+rue+Michelet,+94200+Ivry-sur-Seine,+France",
+  serviceArea: {
+    "@type": "GeoCircle",
+    geoMidpoint: { "@type": "GeoCoordinates", latitude: 48.8145, longitude: 2.385 },
+    geoRadius: "50000",
+  },
+  makesOffer: [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Soudage TIG" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Soudage MIG-MAG" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Soudage à l'électrode" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Réparation métallique" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ferronnerie d'art" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Métallerie" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tuyauterie industrielle" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Intervention urgence soudure" } },
+  ],
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",

@@ -5,6 +5,37 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { SITE } from '@/lib/constants';
 
+const urgencesFaqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: "KRAKEN METALS intervient-il en urgence pour la soudure ?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `Oui. KRAKEN METALS propose une intervention sous 24h pour les urgences de soudure. Appelez le ${SITE.phone} ou contactez-nous par WhatsApp pour une réponse immédiate. Réactivité garantie à Paris, Ivry, Vitry, Villejuif, Charenton et tout le Val-de-Marne.`,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: "Où trouver un soudeur en urgence à Ivry-sur-Seine ?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `KRAKEN METALS est un atelier de soudage de précision au 9 rue Michelet, 94200 Ivry-sur-Seine. Intervention sous 24h possible. Contact : ${SITE.phone}. Ouvert 7j/7 de 9h à 20h.`,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: "Quel numéro appeler pour une soudure urgente dans le 94 ?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `Pour une intervention de soudure en urgence dans le Val-de-Marne (94), contactez KRAKEN METALS au ${SITE.phone}. L'atelier à Ivry-sur-Seine intervient sous 24h sur Paris et toute l'Île-de-France.`,
+      },
+    },
+  ],
+};
+
 export const metadata: Metadata = {
   title: 'Soudure en urgence | Intervention sous 24h | Kraken Metals Ivry',
   description:
@@ -19,6 +50,10 @@ export default function UrgencesPage() {
 
   return (
     <main className="min-h-screen bg-slate-950">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(urgencesFaqSchema) }}
+      />
       <Header />
 
       <section className="relative min-h-[85dvh] flex flex-col items-center justify-center overflow-hidden pt-24 sm:pt-28 pb-16 px-5 sm:px-6 lg:px-8">
