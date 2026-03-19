@@ -8,6 +8,7 @@ import { SITE } from '@/lib/constants';
 const navLinks = [
   { href: '/', label: 'Accueil' },
   { href: '/urgences/', label: 'Urgences', urgent: true },
+  { href: '/devis/', label: 'Devis' },
   { href: '#apropos', label: 'À Propos' },
   { href: '#services', label: 'Services' },
   { href: '#faq', label: 'FAQ' },

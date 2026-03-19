@@ -52,10 +52,10 @@ export default function Hero() {
 
         <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center opacity-0 animate-fade-up-delay-8">
           <a
-            href="#contact"
+            href="/devis/"
             className="inline-flex items-center justify-center min-h-[48px] bg-cyan-500 hover:bg-cyan-400 active:scale-[0.98] text-slate-950 font-semibold px-8 py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/25 touch-manipulation"
           >
-            Nous contacter
+            Demander un devis
           </a>
           <a
             href="#services"

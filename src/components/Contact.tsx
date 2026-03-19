@@ -34,15 +34,25 @@ export default function Contact() {
 
               <div className="mt-8 sm:mt-12 space-y-4 sm:space-y-6">
                 <a
+                  href="/devis/"
+                  className="flex flex-col items-center lg:items-start gap-2 p-5 sm:p-6 rounded-2xl bg-cyan-500/10 border-2 border-cyan-500/50 hover:border-cyan-500 hover:bg-cyan-500/20 active:scale-[0.99] transition-all group min-h-[100px] touch-manipulation"
+                >
+                  <Mail className="w-10 h-10 sm:w-12 sm:h-12 text-cyan-400 group-hover:scale-110 transition-transform" />
+                  <span className="text-slate-400 text-sm font-medium">Devis gratuit</span>
+                  <span className="text-xl sm:text-2xl font-bold text-cyan-400 transition-colors">
+                    Demander un devis
+                  </span>
+                  <span className="text-cyan-400/80 text-sm">Formulaire rapide • Réponse sous 24h</span>
+                </a>
+                <a
                   href={`mailto:${SITE.email}`}
                   className="flex flex-col items-center lg:items-start gap-2 p-5 sm:p-6 rounded-2xl bg-slate-800/50 border border-slate-700 hover:border-cyan-500/50 hover:bg-cyan-500/5 active:scale-[0.99] transition-all group min-h-[100px] touch-manipulation"
                 >
                   <Mail className="w-10 h-10 sm:w-12 sm:h-12 text-slate-400 group-hover:text-cyan-400 transition-colors" />
-                  <span className="text-slate-400 text-sm font-medium">Email</span>
+                  <span className="text-slate-400 text-sm font-medium">Email direct</span>
                   <span className="text-xl sm:text-2xl font-medium text-slate-200 group-hover:text-cyan-400 transition-colors break-all">
                     {SITE.email}
                   </span>
-                  <span className="text-slate-400 text-sm">Écrivez-nous pour votre devis</span>
                 </a>
                 <a
                   href={SITE.phoneHref}
