@@ -24,7 +24,7 @@ export const faqItems = [
   },
   {
     question: "Quels sont les horaires d'ouverture de KRAKEN METALS ?",
-    answer: `KRAKEN METALS est ouvert 7 jours sur 7 : du lundi au dimanche, de 9h à 20h. Vous pouvez nous joindre par téléphone au ${SITE.phone} ou par email à ${SITE.email} pour toute demande de devis ou intervention.`,
+    answer: `KRAKEN METALS est ouvert 7 jours sur 7 : du lundi au dimanche, de 10h à 19h. Vous pouvez nous joindre par téléphone au ${SITE.phone} ou par email à ${SITE.email} pour toute demande de devis ou intervention.`,
   },
   {
     question: "KRAKEN METALS fait-il de la ferronnerie ?",

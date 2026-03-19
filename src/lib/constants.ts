@@ -11,8 +11,8 @@ export const SITE = {
   mapsUrlWeb: 'https://www.google.com/maps/search/?api=1&query=9+rue+Michelet,+94200+Ivry-sur-Seine,+France',
   email: 'contact@kraken-metals.fr',
   hours: {
-    weekdays: '9h - 20h',
-    saturday: '9h - 20h',
-    sunday: '9h - 20h',
+    weekdays: '10h - 19h',
+    saturday: '10h - 19h',
+    sunday: '10h - 19h',
   },
 } as const;

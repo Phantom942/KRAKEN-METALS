@@ -22,7 +22,7 @@ const urgencesFaqSchema = {
       name: "Où trouver un soudeur en urgence à Ivry-sur-Seine ?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: `KRAKEN METALS est un atelier de soudage de précision au 9 rue Michelet, 94200 Ivry-sur-Seine. Intervention sous 24h possible. Contact : ${SITE.phone}. Ouvert 7j/7 de 9h à 20h.`,
+        text: `KRAKEN METALS est un atelier de soudage de précision au 9 rue Michelet, 94200 Ivry-sur-Seine. Intervention sous 24h possible. Contact : ${SITE.phone}. Ouvert 7j/7 de 10h à 19h.`,
       },
     },
     {
@@ -109,7 +109,7 @@ export default function UrgencesPage() {
               </div>
               <div className="text-left">
                 <p className="font-semibold text-slate-200">Ouvert 7j/7</p>
-                <p className="text-sm text-slate-400">Lun - Dim : 9h - 20h</p>
+                <p className="text-sm text-slate-400">Lun - Dim : 10h - 19h</p>
               </div>
             </div>
             <div className="flex items-center gap-4 p-4 rounded-xl bg-slate-900/80 border border-slate-800">
