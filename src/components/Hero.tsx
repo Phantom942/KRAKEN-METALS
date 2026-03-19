@@ -27,10 +27,13 @@ export default function Hero() {
             <Sparkles className="w-4 h-4 text-cyan-400 shrink-0" />
             <span className="text-sm text-slate-300">Artisanat & Expertise</span>
           </div>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/20 border border-cyan-400/30 opacity-0 animate-fade-up-delay-2">
-            <Zap className="w-4 h-4 text-cyan-400 shrink-0" />
+          <a
+            href="/urgences/"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/20 border border-cyan-400/30 hover:bg-cyan-500/30 transition-colors opacity-0 animate-fade-up-delay-2"
+          >
+            <Zap className="w-4 h-4 text-cyan-400 shrink-0" aria-hidden />
             <span className="text-sm text-cyan-300 font-medium">Intervention sous 24h</span>
-          </div>
+          </a>
         </div>
 
         <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-100 leading-tight tracking-tight opacity-0 animate-fade-up-delay-3">

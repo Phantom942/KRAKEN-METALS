@@ -6,6 +6,7 @@ import { SITE } from '@/lib/constants';
 
 const navLinks = [
   { href: '/', label: 'Accueil' },
+  { href: '/urgences/', label: 'Urgences', urgent: true },
   { href: '#apropos', label: 'À Propos' },
   { href: '#services', label: 'Services' },
   { href: '#contact', label: 'Contact' },
@@ -83,7 +84,16 @@ export default function Header() {
 
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a key={link.href} href={link.href} onClick={link.href === '/' ? goToTop : undefined} className="text-slate-300 hover:text-cyan-400 transition-colors text-sm font-medium">
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={link.href === '/' ? goToTop : undefined}
+                className={`text-sm font-medium transition-colors ${
+                  link.urgent
+                    ? 'text-amber-400 hover:text-amber-300'
+                    : 'text-slate-300 hover:text-cyan-400'
+                }`}
+              >
                 {link.label}
               </a>
             ))}
@@ -118,7 +128,11 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => { if (link.href === '/') goToTop(e); setIsMobileMenuOpen(false); }}
-                className="py-3.5 px-2 -mx-2 text-slate-300 hover:text-cyan-400 active:bg-slate-800/50 rounded-lg transition-colors font-medium text-base"
+                className={`py-3.5 px-2 -mx-2 active:bg-slate-800/50 rounded-lg transition-colors font-medium text-base ${
+                  link.urgent
+                    ? 'text-amber-400 hover:text-amber-300'
+                    : 'text-slate-300 hover:text-cyan-400'
+                }`}
               >
                 {link.label}
               </a>
