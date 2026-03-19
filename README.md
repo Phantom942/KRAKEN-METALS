@@ -26,8 +26,11 @@ npm start
 ## Structure
 
 ```
-src/
-├── app/           # App Router (layout, pages, erreurs)
-├── components/    # Composants React
-└── lib/           # Constantes et utils
+├── assets/        # Images et assets (hero-with-logo généré par scripts)
+├── public/        # Fichiers statiques (humans.txt, etc.)
+├── scripts/       # Utilitaires (add-logo.py)
+└── src/
+    ├── app/       # App Router (layout, pages, erreurs)
+    ├── components/# Composants React
+    └── lib/       # Constantes et utils
 ```
