@@ -6,12 +6,12 @@ html {
   scroll-behavior: smooth;
 }
 
-/* scroll-margin-top pour les sections sous header fixe */
+/* scroll-margin-top pour les sections sous header fixe (bandeau + nav) */
 #apropos,
 #services,
 #faq,
 #contact {
-  scroll-margin-top: 5.5rem;
+  scroll-margin-top: 7.5rem;
 }
 
 @media (min-width: 768px) {
@@ -19,7 +19,7 @@ html {
   #services,
   #faq,
   #contact {
-    scroll-margin-top: 6rem;
+    scroll-margin-top: 8rem;
   }
 }
 

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { SITE } from '@/lib/constants';
 import { jsonLd } from '@/lib/structuredData';
+import WhatsAppFloat from '@/components/WhatsAppFloat';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -77,6 +78,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <WhatsAppFloat />
       </body>
     </html>
   );

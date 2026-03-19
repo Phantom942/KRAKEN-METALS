@@ -28,10 +28,11 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: Download OG image for social sharing
+      - name: Download images for social and About
         run: |
           mkdir -p public
           curl -L "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&h=630&fit=crop&fm=jpg" -o public/og-image.jpg
+          curl -L "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80" -o public/about-welder.png
 
       - name: Build
         run: npm run build

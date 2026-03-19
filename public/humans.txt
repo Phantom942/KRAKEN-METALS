@@ -1,0 +1,11 @@
+/* KRAKEN METALS */
+/* Soudage de précision - Ivry-sur-Seine (94) */
+
+/* Équipe */
+Artisan: KRAKEN METALS
+Site: https://www.kraken-metals.fr
+Localisation: 9 rue Michelet, 94200 Ivry-sur-Seine, France
+
+/* Technologie */
+Développé par: PhantomDev
+https://phantomdev.fr
