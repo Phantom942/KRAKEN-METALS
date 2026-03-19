@@ -19,8 +19,8 @@ export default function Footer() {
             <h4 className="text-sm font-semibold text-slate-300 uppercase tracking-wider mb-4">Contact</h4>
             <ul className="space-y-3 text-slate-400 text-sm flex flex-col items-center">
               <li>
-                <a href={SITE.phoneHref} className="flex items-center gap-2 py-2 -my-2 hover:text-cyan-400 transition-colors touch-manipulation">
-                  <Phone size={16} />
+                <a href={SITE.phoneHref} aria-label={`Appeler ${SITE.phone}`} className="flex items-center gap-2 py-2 -my-2 hover:text-cyan-400 transition-colors touch-manipulation">
+                  <Phone size={16} aria-hidden="true" />
                   {SITE.phone}
                 </a>
               </li>
@@ -74,7 +74,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 text-slate-300 hover:text-cyan-400 transition-colors font-medium text-base tracking-[0.12em] uppercase"
           >
-            <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0" aria-hidden>
+            <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0" aria-hidden="true">
               <path d="M16 4c-6 0-10 5-10 10 0 1.8.6 3.5 1.5 4.8v4.2l2.5-2.5 2 2.5 2-2.5 2.5 2.5v-4.2c.9-1.3 1.5-3 1.5-4.8 0-5-4-10-10-10z" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
               <circle cx="11" cy="10.5" r="1.2" fill="currentColor" />
               <circle cx="21" cy="10.5" r="1.2" fill="currentColor" />

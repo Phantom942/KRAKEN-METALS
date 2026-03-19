@@ -59,6 +59,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className="scroll-smooth">
+      <head>
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <meta name="geo.region" content="FR-IDF" />
+        <meta name="geo.placename" content="Ivry-sur-Seine" />
+        <meta name="geo.position" content="48.8145;2.385" />
+        <meta name="ICBM" content="48.8145, 2.385" />
+      </head>
       <body className="antialiased min-h-screen bg-slate-950 text-slate-200">
         <script
           type="application/ld+json"

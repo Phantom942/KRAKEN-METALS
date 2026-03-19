@@ -4,6 +4,8 @@ import { ChevronDown, Sparkles, Zap } from 'lucide-react';
 export default function Hero() {
   return (
     <section
+      id="hero"
+      aria-label="Accueil - L'Art de la Fusion"
       className="relative min-h-[100dvh] min-h-[100svh] flex items-center justify-center overflow-hidden pt-[env(safe-area-inset-top)]"
     >
       <div className="absolute inset-0">

@@ -40,6 +40,7 @@ export const jsonLd = {
     latitude: 48.8145,
     longitude: 2.385,
   },
+  hasMap: "https://www.google.com/maps/search/?api=1&query=9+rue+Michelet,+94200+Ivry-sur-Seine,+France",
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",

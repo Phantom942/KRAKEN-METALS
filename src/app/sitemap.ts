@@ -3,31 +3,14 @@ import { SITE } from '@/lib/constants';
 
 const baseUrl = SITE.url;
 
+/** Site one-page : URL canonique unique pour éviter le duplicate content. */
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: baseUrl,
+      url: baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: 'monthly' as const,
       priority: 1,
-    },
-    {
-      url: `${baseUrl}/services/`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/contact/`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/apropos/`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
     },
   ];
 }

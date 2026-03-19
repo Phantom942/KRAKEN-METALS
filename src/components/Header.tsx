@@ -89,17 +89,18 @@ export default function Header() {
             ))}
             <a
               href={SITE.phoneHref}
-              className="flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-5 py-2.5 rounded-lg transition-all hover:scale-105 active:scale-95"
+              aria-label={`Appeler ${SITE.phone}`}
+              className="flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-5 py-2.5 rounded-lg transition-all hover:scale-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-cyan-400 focus-visible:outline-offset-2"
             >
-              <Phone size={18} />
+              <Phone size={18} aria-hidden="true" />
               Appeler
             </a>
           </div>
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-3 -m-3 min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-200 hover:text-cyan-400 transition-colors active:scale-95"
-            aria-label="Menu"
+            className="md:hidden p-3 -m-3 min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-200 hover:text-cyan-400 transition-colors active:scale-95 focus-visible:outline-2 focus-visible:outline-cyan-400 focus-visible:outline-offset-2 rounded-lg"
+            aria-label={isMobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-menu"
             aria-haspopup="menu"
@@ -124,9 +125,10 @@ export default function Header() {
             ))}
             <a
               href={SITE.phoneHref}
+              aria-label={`Appeler ${SITE.phone}`}
               className="flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 active:scale-[0.98] text-slate-950 font-semibold px-5 py-4 rounded-xl transition-all mt-2 min-h-[48px]"
             >
-              <Phone size={20} />
+              <Phone size={20} aria-hidden="true" />
               Appeler
             </a>
           </div>

@@ -38,13 +38,13 @@ export default function Services() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {services.map((service, i) => (
             <FadeIn key={service.title} delay={i * 50}>
-              <div className="group p-5 sm:p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/5 touch-manipulation h-full">
-                <div className="w-14 h-14 rounded-xl bg-slate-800 flex items-center justify-center mb-4 group-hover:bg-cyan-500/20 transition-colors">
+              <article className="group p-5 sm:p-6 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/10 hover:-translate-y-0.5 touch-manipulation h-full">
+                <div className="w-14 h-14 rounded-xl bg-slate-800 flex items-center justify-center mb-4 group-hover:bg-cyan-500/20 group-hover:scale-105 transition-all duration-300">
                   <service.icon className="w-7 h-7 text-cyan-400" />
                 </div>
                 <h3 className="text-lg font-semibold text-slate-100 mb-2">{service.title}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">{service.description}</p>
-              </div>
+              </article>
             </FadeIn>
           ))}
         </div>

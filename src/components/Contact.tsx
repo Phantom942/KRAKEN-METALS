@@ -14,7 +14,8 @@ export default function Contact() {
               alt="Établi avec outils - atelier de métallerie"
               width={800}
               height={600}
-              className="rounded-2xl shadow-2xl shadow-black/50 w-full h-auto"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="rounded-2xl shadow-2xl shadow-black/50 w-full h-auto object-cover aspect-[4/3]"
             />
           </FadeIn>
 
@@ -55,12 +56,19 @@ export default function Contact() {
                   <span className="text-cyan-400/80 text-sm font-medium">Appuyez pour appeler</span>
                 </a>
 
-                <div className="flex flex-col items-center lg:items-start gap-2 p-5 sm:p-6 rounded-2xl bg-slate-800/50 border border-slate-700">
-                  <MapPin className="w-10 h-10 text-slate-400" />
+                <a
+                  href={SITE.mapsUrlWeb}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center lg:items-start gap-2 p-5 sm:p-6 rounded-2xl bg-slate-800/50 border border-slate-700 hover:border-cyan-500/50 hover:bg-cyan-500/5 transition-all group/addr touch-manipulation"
+                  aria-label="Voir l'adresse sur Google Maps"
+                >
+                  <MapPin className="w-10 h-10 text-slate-400 group-hover/addr:text-cyan-400 transition-colors" />
                   <span className="text-slate-400 text-sm font-medium">Adresse</span>
-                  <span className="text-xl text-slate-200 font-medium">{SITE.address}</span>
+                  <span className="text-xl text-slate-200 font-medium group-hover/addr:text-cyan-400 transition-colors">{SITE.address}</span>
                   <span className="text-slate-400 text-sm">{SITE.city}</span>
-                </div>
+                  <span className="text-slate-500 text-xs">Cliquez pour ouvrir le plan</span>
+                </a>
 
                 <div className="flex flex-col items-center lg:items-start gap-2 p-5 sm:p-6 rounded-2xl bg-slate-800/50 border border-slate-700">
                   <Clock className="w-10 h-10 text-slate-400" />
