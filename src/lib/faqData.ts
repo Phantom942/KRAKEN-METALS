@@ -11,6 +11,10 @@ export const faqItems = [
     answer: "KRAKEN METALS propose le soudage TIG (précision maximale pour acier, inox, aluminium), le soudage MIG-MAG (productivité pour métallerie et assemblages industriels) et le soudage à l'électrode (robustesse pour chantiers et réparations en conditions difficiles).",
   },
   {
+    question: "Faites-vous des réparations auto (échappement, jantes) ?",
+    answer: "Oui. En plus de la métallerie, KRAKEN METALS propose des prestations orientées garage auto : réparation d'échappement (soudure/remise en état) et réparation de jantes aluminium (fissures, rebords). Contactez-nous pour vérifier la faisabilité et obtenir un devis rapide.",
+  },
+  {
     question: "KRAKEN METALS intervient-il en urgence ?",
     answer: `Oui. KRAKEN METALS propose une intervention sous 24h pour les urgences de soudure. Appelez le ${SITE.phone} ou contactez-nous par WhatsApp pour une réponse immédiate. Réactivité garantie à Paris, Ivry, Vitry, Villejuif, Charenton et tout le Val-de-Marne.`,
   },

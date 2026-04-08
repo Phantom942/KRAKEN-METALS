@@ -7,6 +7,8 @@ import {
   Hammer,
   Fuel,
   Building2,
+  Car,
+  Disc3,
 } from 'lucide-react';
 import FadeIn from './FadeIn';
 
@@ -14,6 +16,8 @@ const services = [
   { icon: Flame, title: 'Soudage TIG', description: "Précision maximale pour acier, inox et aluminium. Idéal pour la ferronnerie d'art et les pièces fines." },
   { icon: Layers, title: 'Soudage MIG-MAG', description: 'Productivité et qualité pour les travaux de métallerie et assemblages industriels.' },
   { icon: CircleDot, title: "Soudage à l'électrode", description: 'Robustesse et versatilité pour les chantiers et réparations en conditions difficiles.' },
+  { icon: Car, title: "Réparation échappement", description: "Soudure et réparation d'échappement (auto/moto) : remise en état rapide, intervention possible en urgence." },
+  { icon: Disc3, title: "Réparation jantes aluminium", description: "Réparation de jantes alu : fissures, rebords, soudures sur aluminium avec finition propre." },
   { icon: Hexagon, title: 'Acier & Inox', description: 'Travail sur acier carbone et acier inoxydable pour tous vos projets structurels et alimentaires.' },
   { icon: Cog, title: 'Aluminium & Fonte', description: 'Expertise sur matériaux délicats : assemblage aluminium et réparation de fonte.' },
   { icon: Hammer, title: "Ferronnerie d'art", description: 'Portails, rampes, garde-corps et pièces décoratives sur mesure.' },

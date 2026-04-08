@@ -3,11 +3,11 @@ import { SITE } from './constants';
 /** Structured data enrichi pour SEO, GEO et recommandations IA (ChatGPT, Perplexity, Google AI). */
 export const jsonLd = {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "ProfessionalService", "Store"],
+  "@type": ["LocalBusiness", "ProfessionalService", "Store", "AutoRepair"],
   "@id": `${SITE.url}/#business`,
   name: SITE.name,
   alternateName: "Kraken Metals",
-  description: "KRAKEN METALS est un atelier de soudage de précision à Ivry-sur-Seine (94). Expert en soudure TIG, MIG-MAG et à l'électrode sur acier, inox et aluminium. Métallerie, ferronnerie, tuyauterie industrielle, réparation métallique. Intervention sous 24h possible. Zone : Paris, Val-de-Marne, Île-de-France. Ouvert 7j/7.",
+  description: "KRAKEN METALS est un atelier de soudage de précision et garage auto à Ivry-sur-Seine (94). Soudure TIG, MIG-MAG et à l'électrode sur acier, inox et aluminium. Métallerie, ferronnerie, tuyauterie/mécano-soudure, réparation métallique, réparation échappement, réparation jantes aluminium. Intervention sous 24h possible. Zone : Paris, Val-de-Marne, Île-de-France. Ouvert 7j/7.",
   slogan: "L'Art de la Fusion - Précision Industrielle & Savoir-faire Artisanal",
   image: `${SITE.url}/og-image.jpg`,
   url: SITE.url,
@@ -25,6 +25,9 @@ export const jsonLd = {
     "Ferronnerie",
     "Réparation métallique",
     "Tuyauterie industrielle",
+    "Mécano-soudure",
+    "Réparation échappement",
+    "Réparation jantes aluminium",
     "Soudure urgence",
   ],
   address: {
@@ -71,6 +74,8 @@ export const jsonLd = {
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ferronnerie d'art" } },
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Métallerie" } },
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tuyauterie industrielle" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Réparation échappement" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Réparation jantes aluminium" } },
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Intervention urgence soudure" } },
   ],
   openingHoursSpecification: [

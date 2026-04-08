@@ -2,7 +2,7 @@
 
 import { useState, FormEvent } from 'react';
 import Link from 'next/link';
-import { ArrowRight, FileText, Send } from 'lucide-react';
+import { ArrowRight, FileText, Send, Phone, Copy } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { SITE } from '@/lib/constants';
@@ -12,6 +12,8 @@ const PROJECT_TYPES = [
   { value: 'ferronnerie', label: 'Ferronnerie (portail, rampe, garde-corps…)' },
   { value: 'metallerie', label: 'Métallerie / assemblage' },
   { value: 'reparation', label: 'Réparation / dépannage' },
+  { value: 'echappement', label: 'Réparation échappement (auto/moto)' },
+  { value: 'jantes', label: 'Réparation jantes aluminium' },
   { value: 'tuyauterie', label: 'Tuyauterie industrielle' },
   { value: 'piece-sur-mesure', label: 'Pièce sur mesure / prototype' },
   { value: 'autre', label: 'Autre' },
@@ -20,6 +22,8 @@ const PROJECT_TYPES = [
 export default function DevisPage() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [lastMailtoUrl, setLastMailtoUrl] = useState<string | null>(null);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,29 +39,41 @@ export default function DevisPage() {
 
     const typeLabel = PROJECT_TYPES.find((p) => p.value === typeProjet)?.label || typeProjet;
 
-    const subject = `Devis - ${typeLabel}${urgence ? ' [URGENCE]' : ''}`;
     const body = [
-      `Demande de devis depuis le site kraken-metals.fr`,
+      `Demande de devis — KRAKEN METALS`,
       '',
       `Nom : ${nom}`,
       `Téléphone : ${telephone}`,
       `Email : ${email}`,
       `Type de projet : ${typeLabel}`,
-      urgence ? `Urgence : Oui` : '',
+      urgence ? `Urgence : Oui (sous 24h)` : `Urgence : Non`,
       '',
-      `Description du projet :`,
+      `Description :`,
       message,
-    ]
-      .filter(Boolean)
-      .join('\n');
+    ].join('\n');
 
+    const whatsappUrl = `https://wa.me/33648745668?text=${encodeURIComponent(body)}`;
+    const subject = `Devis - ${typeLabel}${urgence ? ' [URGENCE]' : ''}`;
     const mailtoUrl = `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setLastMailtoUrl(mailtoUrl);
+
     setLoading(true);
-    window.location.href = mailtoUrl;
+    // WhatsApp = le plus fluide sur mobile; email reste une option.
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     setTimeout(() => {
       setLoading(false);
       setSent(true);
     }, 500);
+  };
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(SITE.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      // no-op
+    }
   };
 
   return (
@@ -82,11 +98,27 @@ export default function DevisPage() {
           {sent ? (
             <div className="rounded-2xl bg-cyan-500/10 border border-cyan-500/30 p-8 text-center">
               <p className="text-cyan-400 font-semibold text-lg">
-                Votre client mail s&apos;est ouvert.
+                Votre message est prêt.
               </p>
               <p className="mt-2 text-slate-400 text-sm">
-                Envoyez l&apos;email pour finaliser votre demande. Nous vous répondrons rapidement.
+                Nous avons ouvert WhatsApp pour envoyer votre demande. Si besoin, vous pouvez aussi nous appeler ou envoyer un email.
               </p>
+              <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+                <a
+                  href={SITE.phoneHref}
+                  className="inline-flex items-center justify-center gap-2 min-h-[48px] bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold px-6 py-3 rounded-xl transition-colors"
+                >
+                  <Phone className="w-5 h-5" aria-hidden />
+                  Appeler {SITE.phone}
+                </a>
+                <a
+                  href={lastMailtoUrl ?? `mailto:${SITE.email}`}
+                  className="inline-flex items-center justify-center gap-2 min-h-[48px] border-2 border-slate-600 hover:border-cyan-400 text-slate-200 font-semibold px-6 py-3 rounded-xl transition-colors"
+                >
+                  <Send className="w-5 h-5" aria-hidden />
+                  Envoyer par email
+                </a>
+              </div>
               <button
                 type="button"
                 onClick={() => setSent(false)}
@@ -192,19 +224,35 @@ export default function DevisPage() {
                 className="w-full sm:w-auto flex items-center justify-center gap-2 min-h-[48px] bg-cyan-500 hover:bg-cyan-400 disabled:opacity-70 text-slate-950 font-semibold px-8 py-4 rounded-xl transition-all touch-manipulation"
               >
                 {loading ? (
-                  'Ouverture de votre messagerie...'
+                  'Ouverture de WhatsApp...'
                 ) : (
                   <>
                     <Send className="w-5 h-5" aria-hidden />
-                    Envoyer ma demande
+                    Envoyer sur WhatsApp
                   </>
                 )}
               </button>
 
               <p className="text-slate-500 text-xs">
-                Votre demande ouvrira votre client mail. Envoyez l&apos;email pour nous contacter.
-                Réponse sous 24h garantie.
+                Mobile-first : votre demande part sur WhatsApp (le plus rapide). Vous pouvez aussi appeler au {SITE.phone} ou envoyer un email.
               </p>
+
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                <a
+                  href={`mailto:${SITE.email}`}
+                  className="text-sm text-slate-400 hover:text-cyan-400 transition-colors"
+                >
+                  {SITE.email}
+                </a>
+                <button
+                  type="button"
+                  onClick={copyEmail}
+                  className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-cyan-400 transition-colors"
+                >
+                  <Copy className="w-4 h-4" aria-hidden />
+                  {copied ? 'Copié' : 'Copier l’email'}
+                </button>
+              </div>
             </form>
           )}
 
