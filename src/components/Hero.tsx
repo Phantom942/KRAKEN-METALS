@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import { ChevronDown, Sparkles, Zap } from 'lucide-react';
+import { ChevronDown, Sparkles, Zap, CalendarClock } from 'lucide-react';
+import { CLOSURE } from '@/lib/constants';
 
 export default function Hero() {
   return (
@@ -27,13 +28,20 @@ export default function Hero() {
             <Sparkles className="w-4 h-4 text-cyan-400 shrink-0" />
             <span className="text-sm text-slate-300">Artisanat & Expertise</span>
           </div>
-          <a
-            href="/urgences/"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/20 border border-cyan-400/30 hover:bg-cyan-500/30 transition-colors opacity-0 animate-fade-up-delay-2"
-          >
-            <Zap className="w-4 h-4 text-cyan-400 shrink-0" aria-hidden />
-            <span className="text-sm text-cyan-300 font-medium">Intervention sous 24h</span>
-          </a>
+          {CLOSURE.active ? (
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/20 border border-amber-400/40 opacity-0 animate-fade-up-delay-2">
+              <CalendarClock className="w-4 h-4 text-amber-300 shrink-0" aria-hidden />
+              <span className="text-sm text-amber-200 font-medium">Réouverture très bientôt</span>
+            </div>
+          ) : (
+            <a
+              href="/urgences/"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/20 border border-cyan-400/30 hover:bg-cyan-500/30 transition-colors opacity-0 animate-fade-up-delay-2"
+            >
+              <Zap className="w-4 h-4 text-cyan-400 shrink-0" aria-hidden />
+              <span className="text-sm text-cyan-300 font-medium">Intervention sous 24h</span>
+            </a>
+          )}
         </div>
 
         <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-100 leading-tight tracking-tight opacity-0 animate-fade-up-delay-3">
@@ -46,8 +54,9 @@ export default function Hero() {
         </p>
 
         <p className="mt-4 sm:mt-6 text-slate-400 max-w-2xl mx-auto text-sm sm:text-base opacity-0 animate-fade-up-delay-6">
-          Situé aux portes de Paris, notre atelier d&apos;Ivry-sur-Seine répond à vos besoins les plus exigeants.
-          Intervention rapide sur site ou réalisation en atelier pour tous vos projets de métallerie en Île-de-France.
+          {CLOSURE.active
+            ? 'Notre atelier est momentanément fermé. Laissez-nous un message : nous reprenons le service très bientôt.'
+            : "Situé aux portes de Paris, notre atelier d'Ivry-sur-Seine répond à vos besoins les plus exigeants. Intervention rapide sur site ou réalisation en atelier pour tous vos projets de métallerie en Île-de-France."}
         </p>
 
         <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center opacity-0 animate-fade-up-delay-8">

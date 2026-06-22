@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ArrowRight, FileText, Send, Phone, Copy } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { SITE } from '@/lib/constants';
+import { SITE, CLOSURE } from '@/lib/constants';
 
 const PROJECT_TYPES = [
   { value: '', label: 'Sélectionnez un type de projet' },
@@ -91,7 +91,9 @@ export default function DevisPage() {
               Demande de devis
             </h1>
             <p className="mt-4 text-slate-400 text-base sm:text-lg">
-              Décrivez votre projet et nous vous recontacterons sous 24h.
+              {CLOSURE.active
+                ? 'Laissez-nous les détails de votre projet : nous vous recontacterons dès la réouverture.'
+                : 'Décrivez votre projet et nous vous recontacterons sous 24h.'}
             </p>
           </div>
 
@@ -101,7 +103,9 @@ export default function DevisPage() {
                 Votre message est prêt.
               </p>
               <p className="mt-2 text-slate-400 text-sm">
-                Nous avons ouvert WhatsApp pour envoyer votre demande. Si besoin, vous pouvez aussi nous appeler ou envoyer un email.
+                {CLOSURE.active
+                  ? 'Nous avons ouvert WhatsApp pour enregistrer votre demande. Nous vous répondrons dès la réouverture de l\'atelier.'
+                  : 'Nous avons ouvert WhatsApp pour envoyer votre demande. Si besoin, vous pouvez aussi nous appeler ou envoyer un email.'}
               </p>
               <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
                 <a

@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import type { Metadata } from 'next';
 import Header from '@/components/Header';
+import GarageAdFeatured from '@/components/GarageAdFeatured';
 import Hero from '@/components/Hero';
 import { SITE } from '@/lib/constants';
 import { faqItems } from '@/lib/faqData';
@@ -44,6 +45,7 @@ export default function CatchAllPage() {
       />
       <Header />
       <Hero />
+      <GarageAdFeatured />
       <About />
       <Services />
       <Contact />

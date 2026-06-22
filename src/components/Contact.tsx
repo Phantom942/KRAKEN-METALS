@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import { Phone, MapPin, Clock, Mail } from 'lucide-react';
 import FadeIn from './FadeIn';
-import { SITE } from '@/lib/constants';
+import { SITE, CLOSURE, getPublicHours } from '@/lib/constants';
 
 export default function Contact() {
+  const hours = getPublicHours();
   return (
     <section id="contact" className="py-16 sm:py-24 lg:py-32 bg-slate-900/50">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -22,14 +23,17 @@ export default function Contact() {
           <FadeIn delay={100}>
             <div className="text-center lg:text-left">
               <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-slate-100">
-                Prêt à concrétiser votre projet ?
+                {CLOSURE.active ? 'On revient très bientôt' : 'Prêt à concrétiser votre projet ?'}
               </h2>
               <p className="mt-6 text-slate-400 text-base sm:text-lg">
-                Situé aux portes de Paris, notre atelier d&apos;Ivry-sur-Seine répond à vos besoins les plus exigeants.
-                Intervention rapide sur site ou réalisation en atelier pour tous vos projets de métallerie en Île-de-France.
+                {CLOSURE.active
+                  ? CLOSURE.message
+                  : "Situé aux portes de Paris, notre atelier d'Ivry-sur-Seine répond à vos besoins les plus exigeants. Intervention rapide sur site ou réalisation en atelier pour tous vos projets de métallerie en Île-de-France."}
               </p>
               <p className="mt-4 text-slate-400 text-sm">
-                Zone d&apos;intervention : Paris, Petite Couronne et Grand Paris. Réactivité exceptionnelle pour les urgences.
+                {CLOSURE.active
+                  ? CLOSURE.contactNote
+                  : "Zone d'intervention : Paris, Petite Couronne et Grand Paris. Réactivité exceptionnelle pour les urgences."}
               </p>
 
               <div className="mt-8 sm:mt-12 space-y-4 sm:space-y-6">
@@ -42,7 +46,9 @@ export default function Contact() {
                   <span className="text-xl sm:text-2xl font-bold text-cyan-400 transition-colors">
                     Demander un devis
                   </span>
-                  <span className="text-cyan-400/80 text-sm">Formulaire rapide • Réponse sous 24h</span>
+                  <span className="text-cyan-400/80 text-sm">
+                    {CLOSURE.active ? 'Message enregistré — réponse à la réouverture' : 'Formulaire rapide • Réponse sous 24h'}
+                  </span>
                 </a>
                 <a
                   href={`mailto:${SITE.email}`}
@@ -82,8 +88,8 @@ export default function Contact() {
 
                 <div className="flex flex-col items-center lg:items-start gap-2 p-5 sm:p-6 rounded-2xl bg-slate-800/50 border border-slate-700">
                   <Clock className="w-10 h-10 text-slate-400" />
-                  <span className="text-slate-400 text-sm font-medium">Horaires — Ouvert 7j/7</span>
-                  <span className="text-slate-200">Lun - Dim : 10h - 19h</span>
+                  <span className="text-slate-400 text-sm font-medium">{hours.label}</span>
+                  <span className="text-slate-200">{hours.detail}</span>
                 </div>
               </div>
             </div>

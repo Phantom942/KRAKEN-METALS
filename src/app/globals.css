@@ -11,7 +11,7 @@ html {
 #services,
 #faq,
 #contact {
-  scroll-margin-top: 7.5rem;
+  scroll-margin-top: 8.5rem;
 }
 
 @media (min-width: 768px) {
@@ -19,7 +19,7 @@ html {
   #services,
   #faq,
   #contact {
-    scroll-margin-top: 8rem;
+    scroll-margin-top: 9rem;
   }
 }
 

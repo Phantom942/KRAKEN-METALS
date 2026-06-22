@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Phone, Zap, Clock, MapPin, ArrowRight } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { SITE } from '@/lib/constants';
+import { SITE, CLOSURE, getPublicHours } from '@/lib/constants';
 
 const urgencesFaqSchema = {
   '@context': 'https://schema.org',
@@ -46,7 +46,12 @@ export const metadata: Metadata = {
 };
 
 export default function UrgencesPage() {
-  const whatsappUrl = `https://wa.me/33648745668?text=${encodeURIComponent("Bonjour, j'ai besoin d'une intervention en urgence pour une soudure. Merci.")}`;
+  const hours = getPublicHours();
+  const whatsappUrl = `https://wa.me/33648745668?text=${encodeURIComponent(
+    CLOSURE.active
+      ? "Bonjour, je souhaite vous laisser un message pendant votre fermeture temporaire. Merci."
+      : "Bonjour, j'ai besoin d'une intervention en urgence pour une soudure. Merci."
+  )}`;
 
   return (
     <main className="min-h-screen bg-slate-950">
@@ -61,22 +66,31 @@ export default function UrgencesPage() {
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-3xl" aria-hidden />
 
         <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-sm font-medium mb-8 animate-pulse">
+          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-8 ${
+            CLOSURE.active
+              ? 'bg-amber-500/20 border border-amber-400/40 text-amber-300'
+              : 'bg-amber-500/20 border border-amber-400/40 text-amber-300 animate-pulse'
+          }`}>
             <Zap className="w-4 h-4" aria-hidden />
-            Réactivité garantie
+            {CLOSURE.active ? CLOSURE.headline : 'Réactivité garantie'}
           </div>
 
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-slate-100 leading-tight">
-            Soudure en <span className="text-amber-400">urgence</span>
+            {CLOSURE.active ? (
+              <>Fermeture <span className="text-amber-400">temporaire</span></>
+            ) : (
+              <>Soudure en <span className="text-amber-400">urgence</span></>
+            )}
           </h1>
 
           <p className="mt-6 text-xl sm:text-2xl text-cyan-400 font-semibold">
-            Intervention sous 24h
+            {CLOSURE.active ? 'Reprise du service très bientôt' : 'Intervention sous 24h'}
           </p>
 
           <p className="mt-4 text-slate-400 text-base sm:text-lg max-w-2xl mx-auto">
-            Panne, fuite, pièce cassée ? Notre atelier à Ivry-sur-Seine intervient rapidement
-            sur Paris et toute l&apos;Île-de-France. Appelez ou envoyez un message pour une réponse immédiate.
+            {CLOSURE.active
+              ? `${CLOSURE.message} ${CLOSURE.contactNote}`
+              : "Panne, fuite, pièce cassée ? Notre atelier à Ivry-sur-Seine intervient rapidement sur Paris et toute l'Île-de-France. Appelez ou envoyez un message pour une réponse immédiate."}
           </p>
 
           <div className="mt-10 sm:mt-14 flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -108,8 +122,8 @@ export default function UrgencesPage() {
                 <Clock className="w-6 h-6 text-cyan-400" aria-hidden />
               </div>
               <div className="text-left">
-                <p className="font-semibold text-slate-200">Ouvert 7j/7</p>
-                <p className="text-sm text-slate-400">Lun - Dim : 10h - 19h</p>
+                <p className="font-semibold text-slate-200">{hours.label}</p>
+                <p className="text-sm text-slate-400">{hours.detail}</p>
               </div>
             </div>
             <div className="flex items-center gap-4 p-4 rounded-xl bg-slate-900/80 border border-slate-800">
