@@ -89,7 +89,7 @@ export default function Footer() {
               <circle cx="11" cy="10.5" r="1.2" fill="currentColor" />
               <circle cx="21" cy="10.5" r="1.2" fill="currentColor" />
             </svg>
-            Design by PhantomDev
+            Design by NADER ASSEL
           </a>
         </FadeIn>
       </div>
