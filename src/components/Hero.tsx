@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import { ChevronDown, Sparkles, Zap, CalendarClock } from 'lucide-react';
+import { ChevronDown, Phone, Sparkles, Zap, CalendarClock } from 'lucide-react';
+import { SITE } from '@/lib/constants';
 import { CLOSURE } from '@/lib/constants';
 
 export default function Hero() {
@@ -19,7 +20,7 @@ export default function Hero() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-slate-950/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/45 to-slate-950/85" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
@@ -65,6 +66,13 @@ export default function Hero() {
             className="inline-flex items-center justify-center min-h-[48px] bg-cyan-500 hover:bg-cyan-400 active:scale-[0.98] text-slate-950 font-semibold px-8 py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/25 touch-manipulation"
           >
             Demander un devis
+          </a>
+          <a
+            href={SITE.phoneHref}
+            className="inline-flex items-center justify-center gap-2 min-h-[48px] border-2 border-slate-500 hover:border-cyan-400 text-slate-200 font-semibold px-8 py-4 rounded-xl transition-colors active:scale-[0.98] touch-manipulation"
+          >
+            <Phone className="w-4 h-4" aria-hidden />
+            Appeler
           </a>
           <a
             href="#services"
