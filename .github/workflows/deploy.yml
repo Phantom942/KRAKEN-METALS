@@ -35,11 +35,13 @@ jobs:
           curl -L "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80" -o public/about-welder.png
 
       - name: Build
+        env:
+          CUSTOM_DOMAIN: "true"
         run: npm run build
 
       - name: Pages files
         run: |
-          rm -f out/CNAME
+          cp CNAME out/CNAME
           touch out/.nojekyll
 
       - name: Setup Pages
