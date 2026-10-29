@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { ChevronDown, Phone, Sparkles, Zap, CalendarClock } from 'lucide-react';
-import { SITE } from '@/lib/constants';
-import { CLOSURE } from '@/lib/constants';
+import { SITE, CLOSURE } from '@/lib/constants';
+import { withBase } from '@/lib/paths';
 
 export default function Hero() {
   return (
@@ -20,7 +20,7 @@ export default function Hero() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/45 to-slate-950/85" />
+        <div className="absolute inset-0 bg-slate-950/75" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
@@ -36,7 +36,7 @@ export default function Hero() {
             </div>
           ) : (
             <a
-              href="/urgences/"
+              href={withBase('/urgences/')}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/20 border border-cyan-400/30 hover:bg-cyan-500/30 transition-colors opacity-0 animate-fade-up-delay-2"
             >
               <Zap className="w-4 h-4 text-cyan-400 shrink-0" aria-hidden />
@@ -62,7 +62,7 @@ export default function Hero() {
 
         <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center opacity-0 animate-fade-up-delay-8">
           <a
-            href="/devis/"
+            href={withBase('/devis/')}
             className="inline-flex items-center justify-center min-h-[48px] bg-cyan-500 hover:bg-cyan-400 active:scale-[0.98] text-slate-950 font-semibold px-8 py-4 rounded-xl transition-all shadow-lg shadow-cyan-500/25 touch-manipulation"
           >
             Demander un devis

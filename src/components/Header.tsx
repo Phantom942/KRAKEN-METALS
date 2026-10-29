@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Menu, X, Phone, Zap, MessageCircle } from 'lucide-react';
 import { SITE, CLOSURE } from '@/lib/constants';
+import { withBase } from '@/lib/paths';
 import TemporaryClosureBar from '@/components/TemporaryClosureBar';
 
 const navLinks = [
@@ -67,7 +68,9 @@ export default function Header() {
   }, [isMobileMenuOpen]);
 
   const goToTop = (e: React.MouseEvent) => {
-    if (window.location.hash === '#hero' || window.location.pathname === '/') {
+    const path = window.location.pathname.replace(/\/$/, '') || '/';
+    const home = withBase('/').replace(/\/$/, '') || '/';
+    if (window.location.hash === '#hero' || path === home || path === '/') {
       e.preventDefault();
       window.scrollTo({ top: 0 });
       window.history.replaceState(null, '', window.location.pathname || '/');
@@ -112,7 +115,7 @@ export default function Header() {
       </div>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          <a href="/" onClick={goToTop} className="text-lg sm:text-xl font-bold tracking-tight metallic-text hover:opacity-90 transition-opacity py-3 -my-3">
+          <a href={withBase('/')} onClick={goToTop} className="text-lg sm:text-xl font-bold tracking-tight metallic-text hover:opacity-90 transition-opacity py-3 -my-3">
             {SITE.name.toUpperCase()}
           </a>
 
@@ -120,7 +123,7 @@ export default function Header() {
             {navLinks.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={link.href.startsWith('/') ? withBase(link.href) : link.href}
                 onClick={link.href === '/' ? goToTop : undefined}
                 className={`text-sm font-medium transition-colors ${
                   link.urgent
@@ -160,7 +163,7 @@ export default function Header() {
             {navLinks.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={link.href.startsWith('/') ? withBase(link.href) : link.href}
                 onClick={(e) => { if (link.href === '/') goToTop(e); setIsMobileMenuOpen(false); }}
                 className={`py-3.5 px-2 -mx-2 active:bg-slate-800/50 rounded-lg transition-colors font-medium text-base ${
                   link.urgent

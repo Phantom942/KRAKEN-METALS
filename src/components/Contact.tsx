@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Phone, MapPin, Clock, Mail } from 'lucide-react';
 import FadeIn from './FadeIn';
 import { SITE, CLOSURE, getPublicHours } from '@/lib/constants';
+import { withBase } from '@/lib/paths';
 
 export default function Contact() {
   const hours = getPublicHours();
@@ -38,7 +39,7 @@ export default function Contact() {
 
               <div className="mt-8 sm:mt-12 space-y-4 sm:space-y-6">
                 <a
-                  href="/devis/"
+                  href={withBase('/devis/')}
                   className="flex flex-col items-center lg:items-start gap-2 p-5 sm:p-6 rounded-2xl bg-cyan-500/10 border-2 border-cyan-500/50 hover:border-cyan-500 hover:bg-cyan-500/20 active:scale-[0.99] transition-all group min-h-[100px] touch-manipulation"
                 >
                   <Mail className="w-10 h-10 sm:w-12 sm:h-12 text-cyan-400 group-hover:scale-110 transition-transform" />
