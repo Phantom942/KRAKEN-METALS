@@ -1,11 +1,9 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
-import { Menu, X, Phone, Zap, MessageCircle } from 'lucide-react';
-import { SITE, CLOSURE } from '@/lib/constants';
+import { Menu, X, Phone } from 'lucide-react';
+import { SITE } from '@/lib/constants';
 import { withBase } from '@/lib/paths';
-import TemporaryClosureBar from '@/components/TemporaryClosureBar';
 
 const navLinks = [
   { href: '/', label: 'Accueil' },
@@ -83,36 +81,6 @@ export default function Header() {
         isScrolled ? 'bg-slate-950/95 backdrop-blur-md shadow-lg shadow-black/20' : 'bg-transparent'
       }`}
     >
-      <TemporaryClosureBar />
-      <div className="bg-amber-500/10 border-b border-amber-500/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 py-2 text-sm">
-            {CLOSURE.active ? (
-              <span className="inline-flex items-center gap-2 text-amber-300 font-medium text-center">
-                <MessageCircle className="w-4 h-4 shrink-0" aria-hidden />
-                <span>{CLOSURE.contactNote}</span>
-              </span>
-            ) : (
-              <Link
-                href="/urgences/"
-                className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-medium transition-colors"
-              >
-                <Zap className="w-4 h-4 shrink-0" aria-hidden />
-                <span>Urgence soudure ?</span>
-                <span className="hidden sm:inline">Intervention sous 24h</span>
-              </Link>
-            )}
-            <a
-              href={SITE.phoneHref}
-              aria-label={`Appeler ${SITE.phone}`}
-              className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold transition-colors"
-            >
-              <Phone className="w-4 h-4 shrink-0" aria-hidden />
-              {SITE.phone}
-            </a>
-          </div>
-        </div>
-      </div>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           <a href={withBase('/')} onClick={goToTop} className="text-lg sm:text-xl font-bold tracking-tight metallic-text hover:opacity-90 transition-opacity py-3 -my-3">
