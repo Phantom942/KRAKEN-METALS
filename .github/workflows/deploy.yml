@@ -39,6 +39,11 @@ jobs:
         env:
           CUSTOM_DOMAIN: "true"
 
+      - name: Keep custom domain
+        run: |
+          cp CNAME out/CNAME
+          touch out/.nojekyll
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
