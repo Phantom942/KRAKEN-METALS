@@ -1,14 +1,12 @@
 import { MapPin, Phone, Clock, MapPinned } from 'lucide-react';
 import { SITE, CLOSURE, getPublicHours } from '@/lib/constants';
 import FadeIn from './FadeIn';
-import { GarageAdCompact } from './GarageAd';
 
 export default function Footer() {
   const hours = getPublicHours();
   return (
     <footer className="bg-slate-950 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16 pb-[max(2.5rem,env(safe-area-inset-bottom))]">
-        <GarageAdCompact />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-12 justify-items-center text-center">
           <FadeIn className="max-w-sm">
             <h3 className="text-lg font-bold metallic-text mb-4">{SITE.name.toUpperCase()}</h3>
