@@ -78,19 +78,9 @@ export default function Footer() {
 
         <FadeIn delay={200} className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-slate-400 text-sm sm:text-base text-center">
           <span>© {new Date().getFullYear()} <span className="metallic-text font-semibold">{SITE.name}</span>. Tous droits réservés.</span>
-          <a
-            href="https://phantomdev.fr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 text-slate-300 hover:text-cyan-400 transition-colors font-medium text-base tracking-[0.12em] uppercase"
-          >
-            <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0" aria-hidden="true">
-              <path d="M16 4c-6 0-10 5-10 10 0 1.8.6 3.5 1.5 4.8v4.2l2.5-2.5 2 2.5 2-2.5 2.5 2.5v-4.2c.9-1.3 1.5-3 1.5-4.8 0-5-4-10-10-10z" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-              <circle cx="11" cy="10.5" r="1.2" fill="currentColor" />
-              <circle cx="21" cy="10.5" r="1.2" fill="currentColor" />
-            </svg>
-            Design by NADER ASSEL
-          </a>
+          <p className="text-slate-300 font-medium text-sm sm:text-base tracking-[0.06em]">
+            NADER ASSEL a.k.a. NADER ASSEL DEV WEB
+          </p>
         </FadeIn>
       </div>
     </footer>

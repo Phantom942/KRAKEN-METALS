@@ -7,5 +7,4 @@ Site: https://www.kraken-metals.fr
 Localisation: 9 rue Michelet, 94200 Ivry-sur-Seine, France
 
 /* Technologie */
-Développé par: PhantomDev
-https://phantomdev.fr
+Développé par: NADER ASSEL a.k.a. NADER ASSEL DEV WEB
