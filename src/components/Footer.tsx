@@ -79,7 +79,7 @@ export default function Footer() {
         <FadeIn delay={200} className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-slate-400 text-sm sm:text-base text-center">
           <span>© {new Date().getFullYear()} <span className="metallic-text font-semibold">{SITE.name}</span>. Tous droits réservés.</span>
           <p className="text-slate-300 font-medium text-sm sm:text-base tracking-[0.06em]">
-            NADER ASSEL a.k.a. NADER ASSEL DEV WEB
+            NADER ASSEL DEV WEB
           </p>
         </FadeIn>
       </div>
